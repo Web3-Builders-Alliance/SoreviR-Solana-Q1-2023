@@ -1,0 +1,48 @@
+
+Video:
+https://watch.screencastify.com/v/BMooofnoW9uhMEHWut7t
+
+------------------------------------- Script in english ----------------------------------------------
+
+
+
+Para ver la diferencia de un programa hecho con Rust nativo a uno usando Anchor, utilice este programa...
+
+A la izquierda tenemos el programa escrito en Rust nativo y a la derecha el programa escrito con Anchor.
+
+A primera vista podemos ver que el programa hecho en nativo requiere mas lineas de codigo a diferencia del
+programa hecho con anchor.
+
+Este programa lo que hace es simplemente una verificacion de cuentas que se utilizaran en la
+transaccion. Revisa que esten las cuentas a utilizar, asi como que no hayan sido inicializadas antes
+verificando que el balance de lamports sea cero.
+ 
+
+aca en el nativo podemos ver el llamado de modulos necesarios para que funcione el programa. Son unos cuantos en el nativo pero
+en este caso es uno solo en el programa hecho con Anchor.
+
+En el nativo aca definimos el punto de entrada al programa, mientras que en Anchor usamos el macro "Program" 
+el cual indica que es la entrada principal del programa.
+
+esta funcion "process_intruction" toma 3 argumentos que son program id, accounts que serian las cuentas y instruction data. La funcion verifica que el id del programa que se pasa en la intruccion, coincida con el id del programa actual y esto lo hace con la funcion "system_program::check_id"
+
+Luego la funcion verifica que el numero de cuentas que se pasan a la instruccion, sean al menos 4
+
+Luego se extraen la cuentas de la coleccion usando la funcion "next_account_info" y se verifica que ninguna de las cuentas hayan sido inicializada al verificando que el balance de lamports sea cero
+
+Por ultimo verifica que el id aosciado a "account_to_change" y "system_program" esten correctos
+
+Si todas las verificaciones resultan correctas, la funcion retornara el OK. Por otro lado si no es OK, la funcion retornara un codigo de error indicando la falla. 
+
+
+
+
+Ahora en el programa hecho con Anchor se simplifican las instrucciones ya que el framework se encarga de muchos procesos detras de escena.
+
+en este programa la funcion "check_accounts" se encarga de verificar lo mismo que en el programa nativo. Revisa las cuentas en la coleccion struct 
+
+
+
+Se hace mucho mas sencillo hacer un contrato utilizando Anchor porque simplifica el proceso proporcionando herramientas y bibliotecas para el desarrollo.
+
+
