@@ -1,7 +1,7 @@
 [features]
 seeds = false
 [programs.localnet]
-deposit = "Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS"
+deposit = "BEYZEJUyp6xyV8uRFXY7BN7qe5iz4ssng3VhDGx2ywtX"
 
 [registry]
 url = "https://anchor.projectserum.com"

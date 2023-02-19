@@ -1,3 +1,5 @@
+cargo-features = ["workspace-inheritance"]
+
 [package]
 name = "deposit"
 version = "0.1.0"
@@ -15,8 +17,7 @@ no-log-ix-name = []
 cpi = ["no-entrypoint"]
 default = []
 
-[profile.release]
-overflow-checks = true
-
 [dependencies]
-anchor-lang = "0.24.1"
+anchor-lang     = {version = "0.26.0", features = ["init-if-needed"]}
+anchor-spl      = {version = "0.26.0", features = ["token", "metadata"]}
+solana-program  = "1.15.2"
