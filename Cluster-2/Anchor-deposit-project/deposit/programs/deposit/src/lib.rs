@@ -19,7 +19,7 @@ pub mod deposit {
         Ok(())
     }
 
-    //methods for depositing and withdrawing native tokens
+    //depositing and withdrawing native tokens
     pub fn deposit_native(ctx: Context<DepositNative>, amount: u64) -> Result<()> {
         let deposit_account = &mut ctx.accounts.deposit_account;
         let deposit_auth = &ctx.accounts.deposit_auth;
@@ -65,7 +65,7 @@ pub mod deposit {
         Ok(())
     }
 
-    //methods for depositing and withdrawing fungible SPL tokens
+    //depositing and withdrawing fungible SPL tokens
     pub fn deposit_spl(ctx: Context<DepositSpl>, amount: u64) -> Result<()> {
         let cpi_accounts = SplTransfer {
             from: ctx.accounts.from_token_acct.to_account_info(),
